@@ -18,10 +18,15 @@ class ParkingBoy
 	end
 	
 	def Park car
-		@parkingLots.each {|parkingLot| if parkingLot.Parkable? then return parkingLot.Park car end}
-		nil
+		parkingLot = FindParkingLot
+		raise ParkingException, "No available parking lot" if parkingLot.nil?
+		parkingLot.Park car
 	end
 	
+	def FindParkingLot
+	    @parkingLots.each {|parkingLot| if parkingLot.Parkable? then return parkingLot end}
+		nil
+	end
 	def Unpark ticket
 		@parkingLots.each {|parkingLot| if parkingLot.ValidTicket? ticket then return parkingLot.Unpark ticket end}
 		nil

@@ -41,6 +41,9 @@ class ParkingLot
 		ticket.parkingLot_id==@id && (ValidSlotId? ticket.parkingSlot_id)
 	end
 	
-	attr_reader:id
-	attr_reader:avaliable_count
+	def Vacancy_Rate
+		1.0 * @avaliable_count / @total_count
+	end
+	
+	attr_reader:id, :avaliable_count
 end
