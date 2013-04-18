@@ -4,7 +4,7 @@ require '../Src/ParkingBoy'
 
 class SuperParkingBoy < ParkingBoy
     
-	def FindParkingLot 
+	def findParkingLot 
 	    @parkingLots.max{|lhs, rhs| lhs.Vacancy_Rate <=> rhs.Vacancy_Rate }
 	end
 end
